@@ -20,6 +20,6 @@ html, body {
             align-items: center;
             text-align: center;
             color: #e5e5e5;
-            ox-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
         }
         
