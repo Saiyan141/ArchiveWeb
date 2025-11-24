@@ -8,7 +8,8 @@ html, body {
         }
         .hexagon {
             position: relative;
-            height: 250px;
+            height: 256px;
+            width: 221px;
             background-color: #262626;
             clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
             margin: 50px auto;
