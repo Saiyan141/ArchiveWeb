@@ -20,6 +20,12 @@ html, body {
             align-items: center;
             text-align: center;
             color: #e5e5e5;
-            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8);
-        }
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+                        0 0 40px rgba(255, 255, 255, 0.5);
+            transition: box-shadow 0.3s ease;
+}
+            .hexagon:hover {
+            box-shadow: 0 0 30px rgba(255, 255, 255, 1),
+                        0 0 60px rgba(255, 255, 255, 0.7);
+}
         
