@@ -81,6 +81,14 @@ html, body {
     user-select: text;
 }
 
+#hex:focus,
+.close:focus,
+nav a:focus {
+    outline: none; 
+    box-shadow: 0 0 0 2px var(--color-text-light); 
+    border-radius: 4px;
+}
+
 .menu-bg { background: var(--color-menu-bg); z-index: 5; }
 .page-bg { background: var(--color-page-bg); z-index: 10; }
 
