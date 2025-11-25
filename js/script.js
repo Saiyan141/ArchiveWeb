@@ -1,4 +1,5 @@
 const hexOpener = document.querySelector("#hex");
+const arcText = document.getElementById("arc"); // New variable to fix menu open on text click
 const menu = document.getElementById("menu");
 const pages = document.querySelectorAll(".page");
 const closeBtns = document.querySelectorAll("[data-close]");
@@ -17,7 +18,13 @@ function hideOverlay(el) {
     el.classList.remove("show");
 }
 
+// FIX: Added click handler for both hex and arc text
 hexOpener.addEventListener('click', () => {
+    if (transitionLock) return;
+    showOverlay(menu);
+});
+
+arcText.addEventListener('click', () => {
     if (transitionLock) return;
     showOverlay(menu);
 });
