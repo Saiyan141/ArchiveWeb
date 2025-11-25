@@ -72,8 +72,13 @@ closeBtns.forEach(btn => {
 // Menu links
 links.forEach(link => {
   link.onclick = () => {
+    // Lock the transition until the menu has finished sliding out
     hideOverlay(menu);
-    const page = document.getElementById(link.dataset.page);
-    setTimeout(() => showOverlay(page), 80);
+    
+    // Wait for menu to fully close before showing page
+    setTimeout(() => {
+      const page = document.getElementById(link.dataset.page);
+      showOverlay(page);
+    }, 600); // Wait for the menu's slide-out transition to complete
   };
 });
