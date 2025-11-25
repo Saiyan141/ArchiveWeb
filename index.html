@@ -12,31 +12,63 @@
 <div class="center">
   <div class="hex-wrap">
     <div class="glow"></div>
-    <div id="hex"></div>
+    <div id="hex" role="button" aria-controls="menu" aria-expanded="false" tabindex="0"></div>
     <div id="arc">ARC</div>
   </div>
 </div>
 
-<div id="menu" class="overlay menu-bg">
+<dialog id="menu" class="overlay menu-bg" aria-labelledby="menu-title">
   <div class="content">
-    <div class="close" data-close>×</div>
-    <nav>
-      <a data-page="p1">Link 1</a>
-      <a data-page="p2">Link 2</a>
-      <a data-page="p3">Link 3</a>
-      <a data-page="p4">Link 4</a>
-      <a data-page="p5">Link 5</a>
-      <a data-page="p6">Link 6</a>
+    <button class="close" data-close aria-label="Close menu">×</button>
+    <nav aria-label="Main links">
+      <ul>
+        <li><a data-page="p1">Link 1</a></li>
+        <li><a data-page="p2">Link 2</a></li>
+        <li><a data-page="p3">Link 3</a></li>
+        <li><a data-page="p4">Link 4</a></li>
+        <li><a data-page="p5">Link 5</a></li>
+        <li><a data-page="p6">Link 6</a></li>
+      </ul>
     </nav>
   </div>
-</div>
+</dialog>
 
-<div id="p1" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence one.</p></div></div>
-<div id="p2" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence two.</p></div></div>
-<div id="p3" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence three.</p></div></div>
-<div id="p4" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence four.</p></div></div>
-<div id="p5" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence five.</p></div></div>
-<div id="p6" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence six.</p></div></div>
+<dialog id="p1" class="page page-bg" aria-labelledby="p1-title">
+  <div class="content">
+    <button class="close" data-close aria-label="Close page 1">×</button>
+    <p>Sentence one.</p>
+  </div>
+</dialog>
+<dialog id="p2" class="page page-bg" aria-labelledby="p2-title">
+  <div class="content">
+    <button class="close" data-close aria-label="Close page 2">×</button>
+    <p>Sentence two.</p>
+  </div>
+</dialog>
+<dialog id="p3" class="page page-bg" aria-labelledby="p3-title">
+  <div class="content">
+    <button class="close" data-close aria-label="Close page 3">×</button>
+    <p>Sentence three.</p>
+  </div>
+</dialog>
+<dialog id="p4" class="page page-bg" aria-labelledby="p4-title">
+  <div class="content">
+    <button class="close" data-close aria-label="Close page 4">×</button>
+    <p>Sentence four.</p>
+  </div>
+</dialog>
+<dialog id="p5" class="page page-bg" aria-labelledby="p5-title">
+  <div class="content">
+    <button class="close" data-close aria-label="Close page 5">×</button>
+    <p>Sentence five.</p>
+  </div>
+</dialog>
+<dialog id="p6" class="page page-bg" aria-labelledby="p6-title">
+  <div class="content">
+    <button class="close" data-close aria-label="Close page 6">×</button>
+    <p>Sentence six.</p>
+  </div>
+</dialog>
 
 <script src="js/script.js"></script>
 </body>
