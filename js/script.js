@@ -1,5 +1,4 @@
-const hexWrap = document.querySelector(".hex-wrap");
-const arcText = document.getElementById("arc");
+const hexOpener = document.querySelector("#hex");
 const menu = document.getElementById("menu");
 const pages = document.querySelectorAll(".page");
 const closeBtns = document.querySelectorAll("[data-close]");
@@ -7,78 +6,51 @@ const links = document.querySelectorAll("nav a");
 
 let transitionLock = false;
 
-// Slide in overlay/page
 function showOverlay(el) {
-  if (transitionLock) return;
-  transitionLock = true;
-
-  el.classList.remove("close");
-  el.style.display = "block";
-
-  // allow browser to register display change
-  requestAnimationFrame(() => {
+    if (!el) return;
     el.classList.add("show");
-  });
-
-  const content = el.querySelector('.content');
-  content.style.opacity = 0;
-
-  // fade in text after slide
-  setTimeout(() => {
-    content.style.opacity = 1;
-  }, 350);
-
-  setTimeout(() => {
-    transitionLock = false;
-  }, 650);
+    el.focus();
 }
 
-// Slide out overlay/page
 function hideOverlay(el) {
-  if (!el.classList.contains("show")) return;
-  if (transitionLock) return;
-
-  transitionLock = true;
-  const content = el.querySelector('.content');
-  content.style.opacity = 0;
-
-  el.classList.remove("show");
-  el.classList.add("close");
-
-  function handleTransformEnd(e) {
-    if (e.propertyName === "transform") {
-      el.style.display = "none";
-      el.classList.remove("close");
-      el.removeEventListener("transitionend", handleTransformEnd);
-      transitionLock = false;
-    }
-  }
-
-  el.addEventListener("transitionend", handleTransformEnd);
+    if (!el || !el.classList.contains("show")) return;
+    el.classList.remove("show");
 }
 
-// Hex + ARC click
-hexWrap.onclick = () => showOverlay(menu);
-arcText.onclick = () => showOverlay(menu);
-
-// Close buttons
-closeBtns.forEach(btn => {
-  btn.onclick = () => {
-    hideOverlay(menu);
-    pages.forEach(p => hideOverlay(p));
-  };
+hexOpener.addEventListener('click', () => {
+    if (transitionLock) return;
+    showOverlay(menu);
 });
 
-// Menu links
-links.forEach(link => {
-  link.onclick = () => {
-    if (transitionLock) return; // Prevent multiple transitions happening at once
-    hideOverlay(menu);
+closeBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        if (transitionLock) return;
+        transitionLock = true;
+        
+        pages.forEach(p => hideOverlay(p));
+        hideOverlay(menu);
+        
+        setTimeout(() => {
+            transitionLock = false;
+            hexOpener.focus();
+        }, 650); 
+    });
+});
 
-    // Wait for the menu to fully close before showing the page
-    setTimeout(() => {
-      const page = document.getElementById(link.dataset.page);
-      showOverlay(page);
-    }, 600); // Wait for menu's slide-out transition to complete
-  };
+links.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); 
+        if (transitionLock) return;
+        transitionLock = true;
+
+        const targetPageId = link.dataset.page;
+        const targetPage = document.getElementById(targetPageId);
+        
+        hideOverlay(menu);
+        showOverlay(targetPage);
+
+        setTimeout(() => {
+            transitionLock = false;
+        }, 650); 
+    });
 });
