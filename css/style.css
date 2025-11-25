@@ -78,7 +78,9 @@ html, body {
     z-index: 2;
     text-align: center;
     width: 100%;
-    user-select: text;
+    
+    /* FIX: Prevents text from being selected/highlighted */
+    user-select: none;
 }
 
 #hex:focus,
