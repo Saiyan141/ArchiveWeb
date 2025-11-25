@@ -1,18 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARC</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <script src="js/script.js" defer></script>
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<title>ARC</title>
 </head>
 <body>
-    <div class="container">
-        <div class="hexagon">
-            <h1>ARC</h1>
-        </div>
-    </div>
+
+<div class="center">
+  <div class="hex-wrap">
+    <div class="glow"></div>
+    <div id="hex"></div>
+    <div id="arc">ARC</div>
+  </div>
+</div>
+
+<div id="menu" class="overlay menu-bg">
+  <div class="content">
+    <div class="close" data-close>×</div>
+    <nav>
+      <a data-page="p1">Link 1</a>
+      <a data-page="p2">Link 2</a>
+      <a data-page="p3">Link 3</a>
+      <a data-page="p4">Link 4</a>
+      <a data-page="p5">Link 5</a>
+      <a data-page="p6">Link 6</a>
+    </nav>
+  </div>
+</div>
+
+<div id="p1" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence one.</p></div></div>
+<div id="p2" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence two.</p></div></div>
+<div id="p3" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence three.</p></div></div>
+<div id="p4" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence four.</p></div></div>
+<div id="p5" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence five.</p></div></div>
+<div id="p6" class="page page-bg"><div class="content"><div class="close" data-close>×</div><p>Sentence six.</p></div></div>
+
+<script src="script.js"></script>
 </body>
 </html>
