@@ -5,7 +5,7 @@ const pages = document.querySelectorAll(".page");
 const closeBtns = document.querySelectorAll("[data-close]");
 const links = document.querySelectorAll("nav a");
 
-// Slide in overlay or page
+// Slide in overlay/page
 function showOverlay(el) {
   el.classList.remove("close");
   el.style.display = "block";
@@ -15,13 +15,17 @@ function showOverlay(el) {
   setTimeout(()=>{ content.style.opacity = 1; }, 300);
 }
 
-// Slide out overlay or page
+// Slide out overlay/page
 function hideOverlay(el) {
   const content = el.querySelector('.content');
   content.style.opacity = 0;
   el.classList.remove("show");
   el.classList.add("close");
-  setTimeout(()=>{ el.style.display = "none"; el.classList.remove("close"); }, 600);
+  el.addEventListener('transitionend', function handler() {
+    el.style.display = "none";
+    el.classList.remove("close");
+    el.removeEventListener('transitionend', handler);
+  });
 }
 
 // Hex and ARC click
@@ -43,4 +47,3 @@ links.forEach(link=>{
     showOverlay(document.getElementById(link.dataset.page));
   };
 });
-
